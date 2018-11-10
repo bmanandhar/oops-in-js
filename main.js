@@ -44,3 +44,16 @@ scientist.detail = function(){
   return `${this.firstName} ${this.lastName} discovered ${this.discovery}.`
 };
 console.log(scientist.detail());
+
+//user-object exmaple
+
+var user = {
+  name: "Johny",
+  bornOn: 1995,
+  calorieTarget: 350,
+  meals: ["Indian", "Chinese", "Italian"]
+};
+
+for (var i = 0; i < user.meals.length; i ++){
+  console.log(`${user.name} was born in ${user.bornOn} and he needs to burn ${user.calorieTarget} every day hence he eats ${user.meals[i]}`);
+};
