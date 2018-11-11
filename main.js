@@ -1,5 +1,6 @@
 // "http://www.allthingsjavascript.com/"
-
+//JavaScript Prototypal Inheritance - Jonas Schmedtmann
+//https://www.youtube.com/watch?v=3AKh0-PDsMw
 var person = {
   firstName: "Bill",
   lastName: "Gates",
@@ -156,7 +157,7 @@ console.log(rose.bloom);
 console.log(lily.bloom === rose.bloom);
 //=> false
 
-console.log(lily.bloom() === rose.bloom());
+//console.log(lily.bloom() === rose.bloom());
 //=> true
 
 //Prototype
@@ -185,3 +186,88 @@ var obj3 = {
 
 Object.setPrototypeOf(obj3, objProto);
 obj3.greet(); //=> Hi, World!
+
+//Hoisting
+hoisting(); // calling a function before it's even defined
+function hoisting(){
+  console.log(hoist);
+
+  var what = "Variable and function decarations";
+  console.log("What is hoisted? " + what);
+  var hoist = "to lift or raise up.";
+  console.log("Hoist means " + hoist);
+};
+//
+function Flower (color, petals, smells) {
+  this.color = color;
+  this.petals = petals;
+  this.smells = smells;
+};
+//prototype declared:
+Flower.prototype = {
+bloom: function() {
+  console.log("Look at me!");
+  }
+};
+
+var lily = new Flower("yellow", 6, true);
+var rose = new Flower("red", 32, true);
+
+//Now check the following:
+lily.bloom === rose.bloom; //=> true, being prototype 
+//
+
+function Flower (color, petals, smells) {
+  this.color = color;
+  this.petals = petals;
+  this.smells = smells;
+};
+//prototype declared:
+Flower.prototype = {
+bloom: function() {
+  console.log("Look at me!");
+  },
+  smellsGood: function() {
+    // use 'this' to access the instance's attributes
+      if (this.smells) {
+        return 'This flower smells amazing!';
+      } else {
+        return 'What a noxious weed!';
+      }
+    },
+    describe: function() {
+      console.log("This flower is " + this.color + ".");    
+    }
+};
+
+var rose = new Flower("red", 32, true);
+
+Flower(rose);
+
+//JavaScript Prototypal Inheritance - Jonas Schmedtmann
+//https://www.youtube.com/watch?v=3AKh0-PDsMw
+//Prototype:
+
+var john = {
+  name: 'John',
+  yearOfBirth: 1990,
+  job: 'teacher'
+};
+// here is a function-constructor:
+var Person = function(name, yearOfBirth, job) {
+  this.name = name;
+  this.yearOfBirth = yearOfBirth;
+  this.job = job;
+  this.calculateAge = function() {
+    console.log(2018 - this.yearOfBirth);
+  }
+};
+//now john object can be written as:
+var john = new Person('John', 1990, 'teacher');
+john.calculateAge();
+
+var mark = new Person('Mark', 1948, 'retired');
+mark.calculateAge();
+
+
+
