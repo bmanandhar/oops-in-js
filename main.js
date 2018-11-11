@@ -1,3 +1,5 @@
+// "http://www.allthingsjavascript.com/"
+
 var person = {
   firstName: "Bill",
   lastName: "Gates",
