@@ -49,11 +49,21 @@ console.log(scientist.detail());
 
 var user = {
   name: "Johny",
-  bornOn: 1995,
   calorieTarget: 350,
   meals: ["Indian", "Chinese", "Italian"]
 };
 
-for (var i = 0; i < user.meals.length; i ++){
-  console.log(`${user.name} was born in ${user.bornOn} and he needs to burn ${user.calorieTarget} every day hence he eats ${user.meals[i]}`);
+//now meals will be corrected plus more property-value declared:
+user.meals = ["breakfast", "lunch", "dinner"];
+user.mealTaken = "";
+user.description = "calorie calculation";
+user.bornOn = "06-10-1996";
+user.caloriesEaten = 200;
+user.toEat = function(){
+  for (var i = 0; i < this.meals.length; i ++){
+    this.mealTaken = this.meals[i]
+    console.log(`${this.mealTaken}. Message to ${this.name}: needs to eat ${this.calorieTarget} calories. He ate ${this.caloriesEaten} calories, He was born ${this.bornOn}`)
+  }
 };
+
+user.toEat();
