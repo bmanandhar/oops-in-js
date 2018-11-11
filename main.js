@@ -125,3 +125,61 @@ arr.forEach(element => {
 // cat
 // dog
 // fish
+
+const myObj = {  a: 1, b: 2, c: "String",  d: 4  }
+for (let myProp in myObj) {  
+  console.log(myObj[myProp])
+};
+// 1
+// 2
+// "String"
+// 4
+function Flower (color, petals, smells) {
+  this.color = color;
+  this.petals = petals;
+  this.smells = smells;
+  // Demonstrates a simple method in an object
+  this.bloom = function() {
+      console.log("Look at me!");
+  };
+};
+
+var lily = new Flower("yellow", 6, true);
+var rose = new Flower("red", 32, true);
+
+console.log(lily.bloom);
+
+console.log(rose.bloom);
+
+console.log(lily.bloom === rose.bloom);
+//=> false
+
+console.log(lily.bloom() === rose.bloom());
+//=> true
+
+//Prototype
+
+var objProto = {
+  greet: function(){
+    console.log(this.greeting + "World!");
+  }
+};
+//now here is a constructor function:
+var Greeting = function(term){
+  this.greeting = term;
+};
+
+Greeting.prototype = objProto;
+var obj1 = new Greeting("Hello, ");
+obj1.greet(); //=> Hello, World!
+
+//Method-2
+var obj2 = Object.create(objProto);
+obj2.greeting = "Bye, ";
+
+var obj3 = {
+  greeting: "Hi, "
+};
+
+Object.setPrototypeOf(obj3, objProto);
+obj3.greet(); //=> Hi, World!
