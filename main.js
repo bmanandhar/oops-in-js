@@ -1,3 +1,4 @@
+/*
 // "http://www.allthingsjavascript.com/"
 //JavaScript Prototypal Inheritance - Jonas Schmedtmann
 //https://www.youtube.com/watch?v=3AKh0-PDsMw
@@ -262,12 +263,82 @@ var Person = function(name, yearOfBirth, job) {
     console.log(2018 - this.yearOfBirth);
   }
 };
+
+Person.prototype.calculateAge = function() {
+  console.log(2018 - this.yearOfBirth);
+};
+//say, all of the person objects has the same lastname
+
+Person.prototype.lastName ='Smith';
 //now john object can be written as:
 var john = new Person('John', 1990, 'teacher');
-john.calculateAge();
 
 var mark = new Person('Mark', 1948, 'retired');
+john.calculateAge();
 mark.calculateAge();
+
+console.log(john.lastName);//=> Smith
+console.log(mark.lastName);//=> Smith
+*/
+//Object.create();
+
+var personProto = {
+  calculateAge: function() {
+    console.log(2018 - this.yearOfBirth);
+  }
+};
+
+var john = Object.create(personProto);
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+jane = Object.create(personProto, 
+ { 
+   name: { value: 'Jane' },
+   yearOfBirth: { value: 1969 },
+   job: { value: 'designer' }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
