@@ -113,4 +113,15 @@ var wolfman = new Pet('Wolfman', 'cat', 'Tuxedo Cat', 'meow');
 var rover = new Pet('Rover', 'dog', 'Golden Retriever', 'bark');
 rover.makeNoise();
 wolfman.makeNoise();
+// forEach loop:
 
+var myArray = ["Patricia", "Albert", "Marlon", "Brandon", "Rachele"];
+myArray.forEach(value=> {console.log(value)});
+
+const arr = ['cat', 'dog', 'fish'];
+arr.forEach(element => {
+  console.log(element);
+});
+// cat
+// dog
+// fish
