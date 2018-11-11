@@ -98,3 +98,19 @@ console.log(`${superman.superheroName} ${superman.lastName}`); //=> "Superman Ke
 console.log(superman.superheroName); //=> "Superman";
 superman.revealIdentity();// => "Clark Kent is Superman";
 batman.revealIdentity();// => "Bruce Wayne is Batman";
+//
+function Pet (name, species, breed, noise)  {
+  this.name = name;
+  this.species = species;
+  this.breed = breed;
+  this.noise =  noise;
+  this.makeNoise = function () {
+    console.log(`${this.name} is a ${this.species} of ${this.breed} breed and it ${this.noise}.`);
+  }
+}
+
+var wolfman = new Pet('Wolfman', 'cat', 'Tuxedo Cat', 'meow');
+var rover = new Pet('Rover', 'dog', 'Golden Retriever', 'bark');
+rover.makeNoise();
+wolfman.makeNoise();
+
