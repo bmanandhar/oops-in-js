@@ -292,7 +292,7 @@ var john = Object.create(personProto);
 john.name = 'John';
 john.yearOfBirth = 1990;
 john.job = 'teacher';
-
+//or following way
 jane = Object.create(personProto, 
  { 
    name: { value: 'Jane' },
@@ -300,30 +300,48 @@ jane = Object.create(personProto,
    job: { value: 'designer' }
 });
 
+john.calculateAge();
+jane.calculateAge();
+//Class:
+class flower {
+  constructor (color, petals, smells) {
+    this.color = color;
+    this.petals = petals;
+    this.smells = smells;
+  }
 
+  getColor() {
+    console.log(this.color);
+  }
+};
 
+//extending a class
+class Animal {
+  constructor(name, type="unknown") {    // default value
+    this.name = name;
+    this.type = type;
+  }
+  getName() {
+    console.log(this.name);
+  }
+  speak() {
+    console.log(`${this.name} makes some noise`);
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Cat extends Animal {
+  constructor(name, isDomestic) {
+    super(name, 'carnivore');
+    this.isDomestic = isDomestic;
+  }
+  canBeDomesticated() {
+    console.log(this.isDomestic);
+  }
+  speak() {
+    super.speak();
+    console.log(`${this.name} meows`)
+  }
+};
 
 
 
